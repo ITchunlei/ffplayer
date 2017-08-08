@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E6FC7BF1F3333D6003A5691 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6FC7B51F33304C003A5691 /* SDL2.framework */; };
 		8E791DF31F32C793007D25A0 /* test_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E791DF21F32C793007D25A0 /* test_main.cpp */; };
 		8E791DF41F32DEBD007D25A0 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E791DE31F32C6E7007D25A0 /* libavcodec.a */; };
 		8E791DF51F32DEBD007D25A0 /* libavdevice.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E791DE41F32C6E7007D25A0 /* libavdevice.a */; };
@@ -28,6 +29,44 @@
 		8E791E1A1F32F10C007D25A0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E791E191F32F10C007D25A0 /* Security.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8E6FC7B41F33304C003A5691 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E6FC7AD1F33304B003A5691 /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BECDF66C0761BA81005FE872;
+			remoteInfo = Framework;
+		};
+		8E6FC7B61F33304C003A5691 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E6FC7AD1F33304B003A5691 /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BECDF6B30761BA81005FE872;
+			remoteInfo = "Static Library";
+		};
+		8E6FC7B81F33304C003A5691 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E6FC7AD1F33304B003A5691 /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DB31407717554B71006C0E22;
+			remoteInfo = "Shared Library";
+		};
+		8E6FC7BA1F33304C003A5691 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E6FC7AD1F33304B003A5691 /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BECDF6BE0761BA81005FE872;
+			remoteInfo = "Standard DMG";
+		};
+		8E6FC7BC1F333072003A5691 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E6FC7AD1F33304B003A5691 /* SDL.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = BECDF66D0761BA81005FE872;
+			remoteInfo = "Static Library";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		8E7904721F32C577007D25A0 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -42,6 +81,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8E6FC7AD1F33304B003A5691 /* SDL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL.xcodeproj; path = "../SDL2-2.0.5/Xcode/SDL/SDL.xcodeproj"; sourceTree = "<group>"; };
 		8E7904741F32C577007D25A0 /* ffmpeg_tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ffmpeg_tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E79047F1F32C5BF007D25A0 /* .config */ = {isa = PBXFileReference; lastKnownFileType = text; path = .config; sourceTree = "<group>"; };
 		8E7904801F32C5BF007D25A0 /* .gitattributes */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
@@ -6474,6 +6514,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E6FC7BF1F3333D6003A5691 /* SDL2.framework in Frameworks */,
 				8E791E1A1F32F10C007D25A0 /* Security.framework in Frameworks */,
 				8E791E181F32F0F3007D25A0 /* CoreVideo.framework in Frameworks */,
 				8E791E161F32F0CD007D25A0 /* VideoDecodeAcceleration.framework in Frameworks */,
@@ -6498,9 +6539,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E6FC7AE1F33304B003A5691 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8E6FC7B51F33304C003A5691 /* SDL2.framework */,
+				8E6FC7B71F33304C003A5691 /* libSDL2.a */,
+				8E6FC7B91F33304C003A5691 /* libSDL2.dylib */,
+				8E6FC7BB1F33304C003A5691 /* Standard DMG */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8E79046B1F32C577007D25A0 = {
 			isa = PBXGroup;
 			children = (
+				8E6FC7AD1F33304B003A5691 /* SDL.xcodeproj */,
 				8E791DF11F32C764007D25A0 /* src */,
 				8E791DE01F32C6E7007D25A0 /* ffmpeg_libs */,
 				8E79047E1F32C5BF007D25A0 /* ffmpeg-3.3.3 */,
@@ -13760,6 +13813,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8E6FC7BD1F333072003A5691 /* PBXTargetDependency */,
 			);
 			name = ffmpeg_tests;
 			productName = ffmpeg_tests;
@@ -13791,12 +13845,49 @@
 			mainGroup = 8E79046B1F32C577007D25A0;
 			productRefGroup = 8E7904751F32C577007D25A0 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8E6FC7AE1F33304B003A5691 /* Products */;
+					ProjectRef = 8E6FC7AD1F33304B003A5691 /* SDL.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8E7904731F32C577007D25A0 /* ffmpeg_tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8E6FC7B51F33304C003A5691 /* SDL2.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDL2.framework;
+			remoteRef = 8E6FC7B41F33304C003A5691 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8E6FC7B71F33304C003A5691 /* libSDL2.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDL2.a;
+			remoteRef = 8E6FC7B61F33304C003A5691 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8E6FC7B91F33304C003A5691 /* libSDL2.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libSDL2.dylib;
+			remoteRef = 8E6FC7B81F33304C003A5691 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8E6FC7BB1F33304C003A5691 /* Standard DMG */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "Standard DMG";
+			remoteRef = 8E6FC7BA1F33304C003A5691 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8E7904701F32C577007D25A0 /* Sources */ = {
@@ -13808,6 +13899,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8E6FC7BD1F333072003A5691 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Static Library";
+			targetProxy = 8E6FC7BC1F333072003A5691 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		8E7904791F32C577007D25A0 /* Debug */ = {
@@ -13851,7 +13950,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../ffmpeg-3.3.3/";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../ffmpeg-3.3.3/",
+					"$(SRCROOT)/../SDL2-2.0.5/include/",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -13895,7 +13997,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../ffmpeg-3.3.3/";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../ffmpeg-3.3.3/",
+					"$(SRCROOT)/../SDL2-2.0.5/include/",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
