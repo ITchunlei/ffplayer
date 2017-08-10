@@ -94,14 +94,20 @@ void FFPlayer::DoDemux() {
     AVFrame *frame = av_frame_alloc();
     while (av_read_frame(avformat_ctx, packet) >= 0) {
         if (packet->stream_index == video_index) {
-            avcodec_send_packet(avcodec_ctx, packet);
-            avcodec_receive_frame(avcodec_ctx, frame);
+            if (avcodec_send_packet(avcodec_ctx, packet) < 0) {
+                
+            } else {
+                avcodec_receive_frame(avcodec_ctx, frame);
+                av_frame_unref(frame);
+            }
 //            if (frame)
 //            std::cout << "width:" << frame->width << std::endl;
             // std::cout << packet.duration << std::endl;
         } else if (packet->stream_index == audio_index) {
             // std::cout << packet.duration << std::endl;
         }
+        av_packet_unref(packet);
+
     }
     
     

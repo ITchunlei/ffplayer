@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E3BDFC31F3ACA9C0003B771 /* ffplayer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 8E3BDFC11F3ACA9C0003B771 /* ffplayer.cc */; };
 		8E6FC7BF1F3333D6003A5691 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E6FC7B51F33304C003A5691 /* SDL2.framework */; };
 		8E791DF31F32C793007D25A0 /* test_main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E791DF21F32C793007D25A0 /* test_main.cpp */; };
 		8E791DF41F32DEBD007D25A0 /* libavcodec.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E791DE31F32C6E7007D25A0 /* libavcodec.a */; };
@@ -81,6 +82,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8E3BDFC11F3ACA9C0003B771 /* ffplayer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ffplayer.cc; path = ../src/ffplayer.cc; sourceTree = "<group>"; };
+		8E3BDFC21F3ACA9C0003B771 /* ffplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ffplayer.h; path = ../src/ffplayer.h; sourceTree = "<group>"; };
 		8E6FC7AD1F33304B003A5691 /* SDL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL.xcodeproj; path = "../SDL2-2.0.5/Xcode/SDL/SDL.xcodeproj"; sourceTree = "<group>"; };
 		8E7904741F32C577007D25A0 /* ffmpeg_tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ffmpeg_tests; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E79047F1F32C5BF007D25A0 /* .config */ = {isa = PBXFileReference; lastKnownFileType = text; path = .config; sourceTree = "<group>"; };
@@ -13774,6 +13777,8 @@
 			isa = PBXGroup;
 			children = (
 				8E791DF21F32C793007D25A0 /* test_main.cpp */,
+				8E3BDFC11F3ACA9C0003B771 /* ffplayer.cc */,
+				8E3BDFC21F3ACA9C0003B771 /* ffplayer.h */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -13894,6 +13899,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E3BDFC31F3ACA9C0003B771 /* ffplayer.cc in Sources */,
 				8E791DF31F32C793007D25A0 /* test_main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
