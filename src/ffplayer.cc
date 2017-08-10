@@ -77,8 +77,10 @@ void FFPlayer::DoDemux() {
     
     
     // decode video
+    AVCodecContext *avcodec_ctx = avcodec_alloc_context3(NULL);
+    avcodec_parameters_to_context(avcodec_ctx, avformat_ctx->streams[video_index]->codecpar);
     AVCodec* video_codec = avcodec_find_decoder(avformat_ctx->streams[video_index]->codecpar->codec_id);
-    AVCodecContext *avcodec_ctx = avcodec_alloc_context3(video_codec);
+
     if (avcodec_open2(avcodec_ctx, video_codec, nullptr) < 0) {
         //TODO: error
     }
@@ -90,28 +92,29 @@ void FFPlayer::DoDemux() {
     printf("block_align = %d\n",avcodec_ctx->block_align);
     
     
-    AVPacket *packet = av_packet_alloc();
-    AVFrame *frame = av_frame_alloc();
-    while (av_read_frame(avformat_ctx, packet) >= 0) {
-        if (packet->stream_index == video_index) {
-            if (avcodec_send_packet(avcodec_ctx, packet) < 0) {
-                
+    AVPacket packet;
+    AVFrame *frame = av_frame_alloc();  
+    while (av_read_frame(avformat_ctx, &packet) >= 0) {
+        if (packet.stream_index == video_index) {
+            int ret = avcodec_send_packet(avcodec_ctx, &packet);
+            if (ret < 0) {
+                break;
             } else {
-                avcodec_receive_frame(avcodec_ctx, frame);
-                av_frame_unref(frame);
+                while ( ret >= 0) {
+                    ret = avcodec_receive_frame(avcodec_ctx, frame);
+                }
+                
+                std::cout << frame->width << " : " << frame->coded_picture_number << std::endl;
+              //  av_frame_unref(frame);
             }
-//            if (frame)
-//            std::cout << "width:" << frame->width << std::endl;
-            // std::cout << packet.duration << std::endl;
-        } else if (packet->stream_index == audio_index) {
+        } else if (packet.stream_index == audio_index) {
             // std::cout << packet.duration << std::endl;
         }
-        av_packet_unref(packet);
-
+        av_packet_unref(&packet);
     }
-    
-    
-    
+
+    av_frame_free(&frame);
+
    // avformat_free_context(avformat_ctx);
 }
 

@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
     
     
     FFPlayer player;
- //   player.Open(AV_FILE_PATH);
+    player.Open(AV_FILE_PATH);
     
 //    if (SDL_Init(SDL_INIT_AUDIO | SDL_INIT_TIMER)) {
 //        printf("Could not initialize SDL -%s\n", SDL_GetError());
