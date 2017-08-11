@@ -78,10 +78,13 @@ void FFPlayer::DoDemux() {
     
     // decode video
     AVCodecContext *avcodec_ctx = avcodec_alloc_context3(NULL);
-    avcodec_parameters_to_context(avcodec_ctx, avformat_ctx->streams[video_index]->codecpar);
+    avcodec_parameters_to_context(avcodec_ctx, avformat_ctx->streams[audio_index]->codecpar);
     AVCodec* video_codec = avcodec_find_decoder(avformat_ctx->streams[video_index]->codecpar->codec_id);
-
+    AVCodec* audio_codec = avcodec_find_decoder(avformat_ctx->streams[audio_index]->codecpar->codec_id);
     if (avcodec_open2(avcodec_ctx, video_codec, nullptr) < 0) {
+        //TODO: error
+    }
+    if (avcodec_open2(avcodec_ctx, audio_codec, nullptr) < 0) {
         //TODO: error
     }
     
@@ -89,6 +92,7 @@ void FFPlayer::DoDemux() {
     printf("sample_rate = %d \n", avcodec_ctx->sample_rate);
     printf("channels = %d \n", avcodec_ctx->channels);
     printf("code_name = %s \n", avcodec_ctx->codec->name);
+    printf("long_name = %s \n", avcodec_ctx->codec->long_name);
     printf("block_align = %d\n",avcodec_ctx->block_align);
     
     
@@ -96,25 +100,25 @@ void FFPlayer::DoDemux() {
     AVFrame *frame = av_frame_alloc();  
     while (av_read_frame(avformat_ctx, &packet) >= 0) {
         if (packet.stream_index == video_index) {
+//            std::cout << "dts: " << packet.dts << std::endl;
+//            std::cout << "flags: " << packet.flags << std::endl;
+            
+        } else if (packet.stream_index == audio_index) {
             int ret = avcodec_send_packet(avcodec_ctx, &packet);
             if (ret < 0) {
-                break;
+             //   break;
             } else {
                 while ( ret >= 0) {
                     ret = avcodec_receive_frame(avcodec_ctx, frame);
+                    std::cout << frame->nb_samples << std::endl;
+                    av_frame_unref(frame);
                 }
-                
-                std::cout << frame->width << " : " << frame->coded_picture_number << std::endl;
-              //  av_frame_unref(frame);
+              //  av_packet_unref(&packet);
             }
-        } else if (packet.stream_index == audio_index) {
-            // std::cout << packet.duration << std::endl;
         }
-        av_packet_unref(&packet);
+     //   av_packet_unref(&packet);
     }
-
     av_frame_free(&frame);
-
    // avformat_free_context(avformat_ctx);
 }
 
